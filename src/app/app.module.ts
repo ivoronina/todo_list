@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 
 
@@ -8,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
 import {TodoService} from './services/todo.service';
+import {MatButtonModule, MatIconModule, MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -18,10 +21,15 @@ import {TodoService} from './services/todo.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../services/todo.service';
 import {text} from '@angular/core/src/render3/instructions';
+import {Todo} from '../models/todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -19,9 +20,17 @@ export class TodoListComponent implements OnInit {
     this.todoService.addTodo(value);
     this.getTodos();
   }
+  removeTodo(id) {
+    this.todoService.removeTodo(id);
+    this.getTodos();
+  }
+  switchStatusTodo(id) {
+    this.todoService.switchStatusTodo(id);
+    this.getTodos();
+  }
   private getTodos() {
     this.todoService.getTodos().subscribe(
-      (todos: any[]) => {
+      (todos: Todo[]) => {
         this.todoList = todos;
       },
       () => {}

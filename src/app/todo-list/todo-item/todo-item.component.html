@@ -1,3 +1,12 @@
-<p>
-  {{item}}
-</p>
+<div maxlength="400 px">
+<span>
+  {{item.text}}
+</span>
+
+<button mat-icon-button disabled>
+  <mat-icon [ngClass]="{'status-done':item.status, 'status-new':!item.status}" (click)="switchStatusTodo(item.id)">done</mat-icon>
+</button>
+<button mat-icon-button>
+  <mat-icon (click)="removeTodo(item.id)">delete</mat-icon>
+</button>
+</div>
